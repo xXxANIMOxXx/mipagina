@@ -1,35 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Colores Personalizados del IES Cura Valera */
+/* 1. Definimos los colores exactos del instituto */
 :root {
-  --ies-blue: #1B3C73; /* Azul Marino Institucional */
-  --ies-orange: #FF7F3E; /* Naranja Secundario */
+  --ies-blue: #1B3C73;   /* Azul Oscuro */
+  --ies-orange: #FF7F3E; /* Naranja */
 }
 
-/* Clases para usar en Bootstrap */
+/* 2. Clases para que Bootstrap use nuestros colores */
 .bg-ies-blue {
   background-color: var(--ies-blue) !important;
   color: white;
 }
-
 .text-ies-blue {
   color: var(--ies-blue) !important;
 }
-
 .bg-ies-orange {
   background-color: var(--ies-orange) !important;
   color: white;
 }
-
+.text-ies-orange {
+  color: var(--ies-orange) !important;
+}
+.border-ies-blue {
+  border-color: var(--ies-blue) !important;
+}
 .border-ies-orange {
   border-color: var(--ies-orange) !important;
 }
 
-/* Ajuste para que el footer se quede abajo siempre */
+/* 3. Ajustes generales */
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+a { text-decoration: none; }
