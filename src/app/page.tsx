@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div>
-      {/* SECCIÓN DE BIENVENIDA */}
+      {/* SECCIÓN BIENVENIDA */}
       <div className="mb-5 border-bottom pb-4">
         <h2 className="text-ies-blue fw-bold mb-3">Bienvenidos al IES Cura Valera</h2>
         <p className="lead text-secondary">
@@ -12,7 +12,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* SECCIÓN DE NOTICIAS */}
+      {/* SECCIÓN NOTICIAS */}
       <h3 className="h4 text-ies-orange text-uppercase fw-bold mb-4 border-start border-4 border-ies-orange ps-2">
         <i className="bi bi-newspaper me-2"></i>Últimas Noticias
       </h3>

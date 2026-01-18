@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { useEffect } from 'react';
 
 export default function Navbar() {
-  // Activar funcionalidad de Bootstrap (desplegables)
+  // Activamos los scripts de Bootstrap para que el menú se despliegue
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
 
   return (
     <header className="shadow-sm sticky-top bg-white">
-      {/* 1. BARRA SUPERIOR (Blanca) */}
+      {/* BARRA SUPERIOR (Blanca) */}
       <div className="py-3 border-bottom">
         <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between">
           <Link href="/" className="d-flex align-items-center text-decoration-none text-dark mb-3 mb-md-0">
@@ -25,7 +25,7 @@ export default function Navbar() {
                 e.currentTarget.nextSibling.style.display = 'flex';
               }}
             />
-            {/* Círculo de respaldo */}
+            {/* Círculo de respaldo si falla el logo */}
             <div className="bg-ies-blue text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '70px', height: '70px', display: 'none'}}>
               IES
             </div>
@@ -40,7 +40,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 2. BARRA INFERIOR (Menú Azul) */}
+      {/* BARRA INFERIOR (Menú Azul) */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-ies-blue">
         <div className="container">
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
@@ -53,7 +53,7 @@ export default function Navbar() {
                 <Link href="/" className="nav-link text-white px-3 border-end border-white border-opacity-25">Inicio</Link>
               </li>
               
-              {/* DESPLEGABLE CORREGIDO */}
+              {/* DESPLEGABLE CORREGIDO: "Historia" ahora vive aquí dentro */}
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle text-white px-3 border-end border-white border-opacity-25" href="#" role="button" data-bs-toggle="dropdown">
                   El Centro
