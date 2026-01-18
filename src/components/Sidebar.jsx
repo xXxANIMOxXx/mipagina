@@ -1,24 +1,40 @@
 export default function Sidebar() {
   return (
-    <aside className="w-full md:w-1/4 flex flex-col gap-6">
-      {/* Widget Video */}
-      <div className="bg-white p-4 rounded-lg shadow border-t-4 border-blue-900">
-        <h3 className="font-bold text-lg mb-3 text-blue-900">Video Destacado</h3>
-        <video controls className="w-full rounded">
-          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
-        </video>
+    <aside className="w-full lg:w-1/4 flex flex-col gap-6">
+      
+      {/* Widget 1: Video */}
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+        <div className="bg-instituto-main px-4 py-2">
+          <h3 className="font-bold text-white text-sm uppercase tracking-wide">
+            Multimedia
+          </h3>
+        </div>
+        <div className="p-4">
+          <video controls className="w-full rounded bg-black">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
 
-      {/* Widget Imagen */}
-      <div className="bg-white p-4 rounded-lg shadow border-t-4 border-orange-500">
-        <h3 className="font-bold text-lg mb-3 text-orange-600">Galería</h3>
-        <img 
-          src="https://via.placeholder.com/300x250" 
-          alt="Evento del centro" 
-          className="w-full rounded hover:opacity-90 transition"
-        />
-        <p className="text-xs text-gray-500 mt-2">Visita de antiguos alumnos.</p>
+      {/* Widget 2: Novedades (Imagen) */}
+      <div className="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+        <div className="bg-instituto-secondary px-4 py-2">
+          <h3 className="font-bold text-white text-sm uppercase tracking-wide">
+            Novedades
+          </h3>
+        </div>
+        <div className="p-4">
+          <img 
+            src="https://via.placeholder.com/300x200" 
+            alt="Imagen Novedad" 
+            className="w-full rounded hover:opacity-90 transition cursor-pointer"
+          />
+          <p className="mt-2 text-sm font-bold text-instituto-main">
+            Abierto plazo de matrícula
+          </p>
+        </div>
       </div>
+
     </aside>
   );
 }
