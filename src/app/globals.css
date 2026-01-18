@@ -19,3 +19,25 @@ body {
   flex-direction: column;
 }
 a { text-decoration: none; }
+
+/* Definición de colores corporativos */
+:root {
+  --ies-blue: #1B3C73;   /* Azul Oscuro */
+  --ies-orange: #FF7F3E; /* Naranja */
+}
+
+/* Clases para aplicar los colores en Bootstrap */
+.bg-ies-blue { background-color: var(--ies-blue) !important; color: white; }
+.text-ies-blue { color: var(--ies-blue) !important; }
+.bg-ies-orange { background-color: var(--ies-orange) !important; color: white; }
+.text-ies-orange { color: var(--ies-orange) !important; }
+.border-ies-blue { border-color: var(--ies-blue) !important; }
+.border-ies-orange { border-color: var(--ies-orange) !important; }
+
+/* Ajustes generales */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { text-decoration: none; }
