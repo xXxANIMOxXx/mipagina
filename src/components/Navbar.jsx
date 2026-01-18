@@ -15,20 +15,21 @@ export default function Navbar() {
         <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between">
           <Link href="/" className="d-flex align-items-center text-decoration-none text-dark mb-3 mb-md-0">
             
-            {/* --- AQUÍ ESTÁ EL CAMBIO DEL LOGO --- */}
+            {/* CAMBIO: Usamos el favicon.ico como logo */}
             <img 
-              src="/images/logo.png" 
+              src="/favicon.ico" 
               alt="Logo IES Cura Valera" 
               className="d-block me-3" 
-              style={{height: '80px', objectFit: 'contain'}} 
+              style={{height: '50px', width: 'auto', objectFit: 'contain'}} 
               onError={(e) => {
-                e.currentTarget.style.display = 'none'; // Se oculta si falla
-                e.currentTarget.nextSibling.style.display = 'flex'; // Muestra el círculo
+                // Si incluso el favicon fallara, mostramos el círculo de respaldo
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextSibling.style.display = 'flex';
               }}
             />
             
-            {/* Círculo de respaldo (solo se ve si no hay imagen) */}
-            <div className="bg-ies-blue text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '70px', height: '70px', display: 'none'}}>
+            {/* Círculo de respaldo (solo visible si falla la imagen anterior) */}
+            <div className="bg-ies-blue text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px', display: 'none'}}>
               IES
             </div>
 
