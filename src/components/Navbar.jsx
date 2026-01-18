@@ -1,48 +1,72 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <header className="shadow-md relative z-50">
+    <header className="shadow-sm">
       
-      {/* ZONA SUPERIOR: Blanco con Logo */}
-      <div className="bg-white py-4 px-4">
-        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-4 hover:opacity-80">
-            {/* Logo simulado */}
-            <div className="h-16 w-16 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xs">
-              LOGO
+      {/* 1. BARRA SUPERIOR (Blanca): Logo y Nombre */}
+      <div className="bg-white py-3">
+        <div className="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+          
+          {/* Logo y Título */}
+          <Link href="/" className="d-flex align-items-center text-decoration-none text-dark mb-3 mb-md-0">
+            {/* Si tienes la imagen en public/logo.png se verá, si no, sale el círculo */}
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              className="d-block me-3" 
+              style={{height: '80px', objectFit: 'contain'}} 
+              onError={(e) => {
+                e.target.style.display = 'none'; // Si falla la imagen, se oculta
+                e.target.nextSibling.style.display = 'flex'; // Y se muestra el círculo de repuesto
+              }}
+            />
+            {/* Círculo de repuesto por si no tienes logo aún */}
+            <div className="bg-ies-blue text-white rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '70px', height: '70px', display: 'none'}}>
+              IES
             </div>
-            <div className="text-center sm:text-left">
-              <h1 className="text-2xl font-bold text-instituto-main uppercase">
-                IES Cura Valera
-              </h1>
-              <p className="text-sm text-gray-500 font-medium tracking-widest uppercase">
-                Enseñanza de Calidad
-              </p>
+
+            <div>
+              <h1 className="h2 mb-0 fw-bold text-uppercase text-ies-blue" style={{letterSpacing: '-1px'}}>IES Cura Valera</h1>
+              <span className="text-secondary text-uppercase small ls-1">Enseñanza Secundaria y FP</span>
             </div>
           </Link>
 
-          <button 
-            onClick={() => setIsOpen(!isOpen)} 
-            className="sm:hidden text-instituto-main p-2 border border-gray-200 rounded"
-          >
-            Menú ☰
-          </button>
+          {/* Información extra (derecha) */}
+          <div className="d-none d-md-block text-end text-secondary small">
+            <div><i className="bi bi-geo-alt-fill me-1 text-ies-orange"></i> Huércal-Overa (Almería)</div>
+            <div><i className="bi bi-telephone-fill me-1 text-ies-orange"></i> 950 12 34 56</div>
+          </div>
         </div>
       </div>
 
-      {/* ZONA INFERIOR: Barra Azul */}
-      <nav className={`${isOpen ? 'block' : 'hidden'} sm:block bg-instituto-main text-white`}>
-        <div className="container mx-auto">
-          <ul className="flex flex-col sm:flex-row font-medium">
-            <li><Link href="/" className="block py-3 px-6 hover:bg-white hover:text-instituto-main transition">INICIO</Link></li>
-            <li><Link href="/departamentos" className="block py-3 px-6 hover:bg-white hover:text-instituto-main transition">DEPARTAMENTOS</Link></li>
-            <li><Link href="#" className="block py-3 px-6 hover:bg-white hover:text-instituto-main transition">CONTACTO</Link></li>
-          </ul>
+      {/* 2. BARRA INFERIOR (Menú): Azul Institucional */}
+      <nav className="navbar navbar-expand-lg navbar-dark bg-ies-blue">
+        <div className="container">
+          <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span className="navbar-toggler-icon"></span> Menú
+          </button>
+          
+          <div className="collapse navbar-collapse" id="mainNav">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 fw-bold text-uppercase fs-6">
+              <li className="nav-item">
+                <Link href="/" className="nav-link text-white px-3 border-end border-primary border-opacity-25">Inicio</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/centro" className="nav-link text-white px-3 border-end border-primary border-opacity-25">El Centro</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/departamentos" className="nav-link text-white px-3 border-end border-primary border-opacity-25">Departamentos</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/contacto" className="nav-link text-white px-3">Contacto</Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/centro/historia" className="dropdown-item">Historia</Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
